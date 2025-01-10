@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2014, Ben Buhrow
+Copyright (c) 2024, Ben Buhrow
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -36,6 +36,8 @@ either expressed or implied, of the FreeBSD Project.
 
 uint64_t sp_shanks_loop(mpz_t N);
 int par_shanks_loop(uint64_t* N, uint64_t* f, int num_in);
+int squfof_rds(int64_t n, int* fac1, int* fac2);
+int alpern_SQUFOF(int64_t N);
 
 uint64_t spfermat(uint64_t limit, uint32_t mult, uint64_t n);
 

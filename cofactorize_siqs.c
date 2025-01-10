@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2014, Ben Buhrow
+Copyright (c) 2024, Ben Buhrow
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -887,9 +887,9 @@ are probably useful
     }
   }
   
-#ifdef VERBOSE
-  printf("block sieve: %u survivors\n", j);
-#endif
+//#ifdef VERBOSE
+//  printf("block sieve: %u survivors\n", j);
+//#endif
 
   return j;
 }
@@ -949,9 +949,9 @@ are probably useful
     }
   }
   
-#ifdef VERBOSE
-  printf("block sieve: %u survivors\n", j);
-#endif
+//#ifdef VERBOSE
+//  printf("block sieve: %u survivors\n", j);
+//#endif
 
   return j;
 }

@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\alpern_squfof.c" />
+    <ClCompile Include="..\..\rds_squfof.c" />
     <ClCompile Include="..\..\squfof.c" />
     <ClCompile Include="..\..\trialdiv.c" />
   </ItemGroup>

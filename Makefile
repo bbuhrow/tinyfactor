@@ -1,6 +1,6 @@
 
 CC = gcc
-CFLAGS = -fno-common -g -m64 -std=gnu99 
+CFLAGS = -fno-common -g -m64 -std=gnu99 -fPIE
 WARN_FLAGS = -Wall -Wconversion
 OPT_FLAGS = -O2 -DNDEBUG 
 OBJ_EXT = .o
@@ -16,8 +16,8 @@ LIBS = -L.
 # we require additional search directories for gmp and gmp-ecm, 
 # for libraries and headers.  Change
 # these if your installation locations differ.
-INC += -I../gmp_install/gmp_6.2.0/include
-LIBS += -L../gmp_install/gmp_6.2.0/lib
+INC += -I../gmp-install/6.2.1/include
+LIBS += -L../gmp-install/6.2.1/lib
 
 
 
@@ -112,7 +112,9 @@ SRCS = \
 	tinyecm.c \
 	trialdiv.c \
 	util.c \
-	monty.c
+	monty.c \
+	rds_squfof.c \
+	alpern_squfof.c
 	
 HDR = \
 	microecm.h \
@@ -129,7 +131,41 @@ OBJS = $(SRCS:.c=.o)
 
 #---------------------------Make Targets -------------------------
 
+gmp-aux.o: gmp-aux.c if.h ggnfs_mpqs/siever-config.h
+	$(CC) $(CFLAGS)  -DMPQS_STAT -DMPQS_ZEIT -c -o $@ $<
+	
+mpz-ull.o: mpz-ull.c if.h ggnfs_mpqs/siever-config.h
+	$(CC) $(CFLAGS)  -DMPQS_STAT -DMPQS_ZEIT -c -o $@ $<
+	
+libgmp-aux.a: gmp-aux.o mpz-ull.o
+	$(AR) rcs $@ $^
+	
+mpqs.o: mpqs.c ggnfs_mpqs/mpqs-config.h ggnfs_mpqs/siever-config.h
+#	gcc -c -O2 -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $<
 
+mpqs3.o: mpqs3.c ggnfs_mpqs/mpqs-config.h ggnfs_mpqs/siever-config.h
+#	gcc -c -O2 -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $<
+	
+mpqsz.o: mpqs.c ggnfs_mpqs/mpqs-config.h
+	$(CC) $(CFLAGS)  -DMPQS_STAT -DMPQS_ZEIT -c -o $@ $<
+#	gcc -g -DMPQS_STAT -DMPQS_ZEIT -c -o $@ $<
+	
+mpqstest.o: mpqstest.c if.h ggnfs_mpqs/siever-config.h
+	$(CC) $(CFLAGS)  -DMPQS_STAT -DMPQS_ZEIT -c -o $@ $<
+
+mpqstest: mpqstest.o mpqsz.o if.o mpz-ull.o ggnfs_mpqs/liblasieve.a
+	$(CC) $(CFLAGS) -L../gmp-install/6.2.1/lib -o $@ $^ -lgmp -lm
+
+mpqs3z.o: mpqs3.c ggnfs_mpqs/mpqs-config.h
+	$(CC) $(CFLAGS)  -DMPQS3_STAT -DMPQS3_ZEIT -c -o $@ $<
+#	gcc -g -DMPQS3_STAT -DMPQS3_ZEIT -c -o $@ $<
+
+mpqs3test: mpqs3test.o mpqs3z.o if.o libgmp-aux.a ggnfs_mpqs/liblasieve.a
+	$(CC) $(CFLAGS) -L../gmp-install/6.2.1/lib -o $@ $^ -lgmp -lm
+
+	
 all: $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o tfactor $(LIBS)
 	
@@ -139,3 +175,4 @@ clean:
 
 %.o: %.c $(COMMON_HDR)
 	$(CC) $(CFLAGS) -c -o $@ $<
+	

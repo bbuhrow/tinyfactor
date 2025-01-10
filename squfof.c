@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2014, Ben Buhrow
+Copyright (c) 2024, Ben Buhrow
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -397,7 +397,7 @@ int par_shanks_loop(uint64_t *N, uint64_t *f, int num_in)
 
 
         // run parallel squfof
-#if (USE_AVX2) && !defined(_MSC_VER)
+#if defined(USE_AVX2) && !defined(_MSC_VER)
 #if defined(__INTEL_COMPILER) || defined (__INTEL_LLVM_COMPILER)
         par_shanks_mult_unit(&mult_batch);
 #else
@@ -744,7 +744,6 @@ int init_multipliers(mult_t **savedata, par_mult_t batch_data,
     return success;
 }
 
-
 int init_next_multiplier(par_mult_t mult_save, int lane, 
     int num_in, mpz_t gmptmp)
 {
@@ -821,8 +820,6 @@ int init_next_multiplier(par_mult_t mult_save, int lane,
     // whether we found a factor or not (overwhelming not... but it could happen).
     return success;
 }
-
-
 
 void shanks_mult_unit(uint64_t N, mult_t *mult_save, uint64_t *f)
 {

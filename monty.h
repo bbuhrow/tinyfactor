@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2014, Ben Buhrow
+Copyright (c) 2024, Ben Buhrow
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -91,7 +91,7 @@ void submod128(uint64_t * u, uint64_t * v, uint64_t * w, uint64_t * n);
 
 /********************* 64-bit Montgomery arith **********************/
 
-#if (defined(GCC_ASM64X) || defined(__MINGW64__)) && !defined(ASM_ARITH_DEBUG)
+#if (defined(GCC_ASM64X) || defined(__MINGW64__))
 
 
 __inline uint64_t _umul128(uint64_t x, uint64_t y, uint64_t* hi);
