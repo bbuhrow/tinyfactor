@@ -19,35 +19,85 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\ggnfs_mpqs\gmp-aux.c" />
-    <ClCompile Include="..\..\ggnfs_mpqs\if.c" />
-    <ClCompile Include="..\..\ggnfs_mpqs\mpqs.c" />
-    <ClCompile Include="..\..\ggnfs_mpqs\mpqs3.c" />
-    <ClCompile Include="..\..\ggnfs_mpqs\mpqs3arith.c" />
-    <ClCompile Include="..\..\ggnfs_mpqs\mpqs3test.c" />
-    <ClCompile Include="..\..\ggnfs_mpqs\mpqstest.c" />
-    <ClCompile Include="..\..\ggnfs_mpqs\mpz-ull.c" />
-    <ClCompile Include="..\..\ggnfs_mpqs\siever-config.c" />
+    <ClCompile Include="..\..\ggnfs_mpqs\gmp-aux.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\ggnfs_mpqs\if.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\ggnfs_mpqs\mpqs.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\ggnfs_mpqs\mpqs3.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\ggnfs_mpqs\mpqs3arith.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\ggnfs_mpqs\mpqs3test.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\ggnfs_mpqs\mpqstest.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\ggnfs_mpqs\mpz-ull.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\ggnfs_mpqs\siever-config.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\ggnfs_mpqs\gmp-aux.h" />
-    <ClInclude Include="..\..\ggnfs_mpqs\if.h" />
-    <ClInclude Include="..\..\ggnfs_mpqs\mpqs-config.h" />
-    <ClInclude Include="..\..\ggnfs_mpqs\mpqs.h" />
-    <ClInclude Include="..\..\ggnfs_mpqs\mpqs3.h" />
-    <ClInclude Include="..\..\ggnfs_mpqs\siever-config.h" />
+    <ClInclude Include="..\..\ggnfs_mpqs\gmp-aux.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\ggnfs_mpqs\if.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\ggnfs_mpqs\mpqs-config.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\ggnfs_mpqs\mpqs.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\ggnfs_mpqs\mpqs3.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\ggnfs_mpqs\siever-config.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\ggnfs_mpqs\mpqs3_gauss.asm" />
-    <None Include="..\..\ggnfs_mpqs\mpqs3_nextpol.asm" />
-    <None Include="..\..\ggnfs_mpqs\mpqs3_sieve.asm" />
-    <None Include="..\..\ggnfs_mpqs\mpqs3_td.asm" />
-    <None Include="..\..\ggnfs_mpqs\mpqs_eval.asm" />
-    <None Include="..\..\ggnfs_mpqs\mpqs_gauss.asm" />
-    <None Include="..\..\ggnfs_mpqs\mpqs_nextpol.asm" />
-    <None Include="..\..\ggnfs_mpqs\mpqs_sieve.asm" />
-    <None Include="..\..\ggnfs_mpqs\mpqs_sieveinit.asm" />
-    <None Include="..\..\ggnfs_mpqs\mpqs_td.asm" />
+    <None Include="..\..\ggnfs_mpqs\mpqs3_gauss.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\..\ggnfs_mpqs\mpqs3_nextpol.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\..\ggnfs_mpqs\mpqs3_sieve.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\..\ggnfs_mpqs\mpqs3_td.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\..\ggnfs_mpqs\mpqs_eval.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\..\ggnfs_mpqs\mpqs_gauss.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\..\ggnfs_mpqs\mpqs_nextpol.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\..\ggnfs_mpqs\mpqs_sieve.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\..\ggnfs_mpqs\mpqs_sieveinit.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="..\..\ggnfs_mpqs\mpqs_td.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
