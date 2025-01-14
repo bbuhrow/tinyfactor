@@ -1,0 +1,117 @@
+# format of a line:
+# algorithm,file,number of tests to run
+# algorithm names:
+# lehman, squfof, fermat, squfof-par, rho, uecm, uecm-par, tecm, tecm-par, siqs, ggnfs-mpqs, ggnfs-mpqs3
+# algorithm restrictions:
+# lehman: <= 60 bits
+# squfof: <= 62 bits
+# squfof-par: <= 62 bits
+# uecm-par: <= 52 bits
+# tecm-par: <= 104 bits
+# siqs: >= 34 bits
+# ggnfs-mpqs: <= 96 bits
+# ggnfs-mpqs3: >= 90 bits
+# uecm: <= 64 bits
+# fermat: <= 64 bits
+# rho: <= 64 bits
+lehman,semiprimes_32bit.dat,100000
+lehman,semiprimes_34bit.dat,100000
+lehman,semiprimes_36bit.dat,100000
+lehman,semiprimes_38bit.dat,100000
+lehman,semiprimes_40bit.dat,100000
+lehman,semiprimes_42bit.dat,100000
+lehman,semiprimes_44bit.dat,100000
+lehman,semiprimes_46bit.dat,100000
+lehman,semiprimes_48bit.dat,100000
+lehman,semiprimes_50bit.dat,100000
+lehman,semiprimes_52bit.dat,100000
+lehman,semiprimes_54bit.dat,100000
+lehman,semiprimes_56bit.dat,100000
+lehman,semiprimes_58bit.dat,100000
+squfof,semiprimes_32bit.dat,100000
+squfof,semiprimes_34bit.dat,100000
+squfof,semiprimes_36bit.dat,100000
+squfof,semiprimes_38bit.dat,100000
+squfof,semiprimes_40bit.dat,100000
+squfof,semiprimes_42bit.dat,100000
+squfof,semiprimes_44bit.dat,100000
+squfof,semiprimes_46bit.dat,100000
+squfof,semiprimes_48bit.dat,100000
+squfof,semiprimes_50bit.dat,100000
+squfof,semiprimes_52bit.dat,100000
+squfof,semiprimes_54bit.dat,100000
+squfof,semiprimes_56bit.dat,100000
+squfof,semiprimes_60bit.dat,100000
+squfof-par,semiprimes_32bit.dat,100000
+squfof-par,semiprimes_34bit.dat,100000
+squfof-par,semiprimes_36bit.dat,100000
+squfof-par,semiprimes_38bit.dat,100000
+squfof-par,semiprimes_40bit.dat,100000
+squfof-par,semiprimes_42bit.dat,100000
+squfof-par,semiprimes_44bit.dat,100000
+squfof-par,semiprimes_46bit.dat,100000
+squfof-par,semiprimes_48bit.dat,100000
+squfof-par,semiprimes_50bit.dat,100000
+squfof-par,semiprimes_52bit.dat,100000
+squfof-par,semiprimes_54bit.dat,100000
+squfof-par,semiprimes_56bit.dat,100000
+squfof-par,semiprimes_60bit.dat,100000
+fermat,semiprimes_32bit.dat,100000
+fermat,semiprimes_34bit.dat,100000
+fermat,semiprimes_36bit.dat,100000
+fermat,semiprimes_38bit.dat,100000
+fermat,semiprimes_40bit.dat,100000
+fermat,semiprimes_42bit.dat,100000
+fermat,semiprimes_44bit.dat,100000
+fermat,semiprimes_46bit.dat,100000
+fermat,semiprimes_48bit.dat,100000
+fermat,semiprimes_50bit.dat,100000
+fermat,semiprimes_52bit.dat,100000
+fermat,semiprimes_54bit.dat,100000
+fermat,semiprimes_56bit.dat,100000
+fermat,semiprimes_60bit.dat,100000
+rho,semiprimes_32bit.dat,100000
+rho,semiprimes_34bit.dat,100000
+rho,semiprimes_36bit.dat,100000
+rho,semiprimes_38bit.dat,100000
+rho,semiprimes_40bit.dat,100000
+rho,semiprimes_42bit.dat,100000
+rho,semiprimes_44bit.dat,100000
+rho,semiprimes_46bit.dat,100000
+rho,semiprimes_48bit.dat,100000
+rho,semiprimes_50bit.dat,100000
+rho,semiprimes_52bit.dat,100000
+rho,semiprimes_54bit.dat,100000
+rho,semiprimes_56bit.dat,100000
+rho,semiprimes_58bit.dat,100000
+rho,semiprimes_60bit.dat,100000
+rho,semiprimes_62bit.dat,100000
+rho,semiprimes_64bit.dat,100000
+uecm,semiprimes_32bit.dat,100000
+uecm,semiprimes_34bit.dat,100000
+uecm,semiprimes_36bit.dat,100000
+uecm,semiprimes_38bit.dat,100000
+uecm,semiprimes_40bit.dat,100000
+uecm,semiprimes_42bit.dat,100000
+uecm,semiprimes_44bit.dat,100000
+uecm,semiprimes_46bit.dat,100000
+uecm,semiprimes_48bit.dat,100000
+uecm,semiprimes_50bit.dat,100000
+uecm,semiprimes_52bit.dat,100000
+uecm,semiprimes_54bit.dat,100000
+uecm,semiprimes_56bit.dat,100000
+uecm,semiprimes_58bit.dat,100000
+uecm,semiprimes_60bit.dat,100000
+uecm,semiprimes_62bit.dat,100000
+uecm,semiprimes_64bit.dat,100000
+uecm-par,semiprimes_32bit.dat,100000
+uecm-par,semiprimes_34bit.dat,100000
+uecm-par,semiprimes_36bit.dat,100000
+uecm-par,semiprimes_38bit.dat,100000
+uecm-par,semiprimes_40bit.dat,100000
+uecm-par,semiprimes_42bit.dat,100000
+uecm-par,semiprimes_44bit.dat,100000
+uecm-par,semiprimes_46bit.dat,100000
+uecm-par,semiprimes_48bit.dat,100000
+uecm-par,semiprimes_50bit.dat,100000
+uecm-par,semiprimes_52bit.dat,100000

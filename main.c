@@ -37,6 +37,7 @@ either expressed or implied, of the FreeBSD Project.
 #include "tinyfactor.h"
 #include "arith.h"
 #include "cmdOptions.h"
+#include "batch_factor.h"
 
 #define MAX_FACTORS 128
 
@@ -53,6 +54,7 @@ enum test_algorithm {
 	SQUFOF_RDS,
 	SQUFOF_ALPERN,
 	FERMAT,
+	BATCHFACTOR,
 	UNKNOWN_ALG
 };
 
@@ -428,6 +430,7 @@ int main(int argc, char** argv)
 			if (strcmp(ptr, "tecm") == 0) test.alg = TECM;
 			if (strcmp(ptr, "tecm-par") == 0) test.alg = TECM_PAR;
 			if (strcmp(ptr, "siqs") == 0) test.alg = SIQS;
+			if (strcmp(ptr, "batchfactor") == 0) test.alg = BATCHFACTOR;
 			strncpy(algname, ptr, 80);
 
 			if (test.alg == UNKNOWN_ALG)
@@ -444,11 +447,6 @@ int main(int argc, char** argv)
 
 			test.testfile = testFile;
 			test.lcg_state = lcg_state;
-
-			//printf("===============================================================\n");
-			//printf("running %u test cases from file %s using algorithm %d\n",
-			//	test.num_to_test, test.testfile, test.alg);
-			//printf("===============================================================\n");
 			
 			run_test(&test);
 			lcg_state = test.lcg_state;
@@ -460,141 +458,6 @@ int main(int argc, char** argv)
 		}
 
 		fclose(in);
-
-		mpz_clear(gmptmp);
-		free(primes);
-		return 0;
-
-#if 0
-		int do_squfof_p;
-		int do_tinyecm;
-
-		if (do_squfof_p)
-		{
-			printf("=================== Squfof Method (Parallel) ==================\n");
-			numtest = num;
-			for (nf = 0; nf < num_files; nf++)
-			{
-				in = fopen(filenames[nf], "r");
-
-				gettimeofday(&gstart, NULL);
-				i = 0;
-				totBits = 0;
-				minBits = 999;
-				maxBits = 0;
-				while (!feof(in))
-				{
-					fscanf(in, "%" PRIu64 ",%u,%u", comp + i, f1 + i, f2 + i);
-					mpz_set_ui(gmptmp, comp[i]);
-					j = mpz_sizeinbase(gmptmp, 2);
-					if (j < 32) continue;
-					totBits += j;
-					if ((uint32_t)j > maxBits)
-						maxBits = j;
-					if ((uint32_t)j < minBits && j != 0)
-						minBits = j;
-					i++;
-				}
-				fclose(in);
-				gettimeofday(&gstop, NULL);
-
-				f_time = ytools_difftime(&gstart, &gstop);
-				avgBits = (double)totBits / (double)i;
-
-				if (avgBits > 62.5)
-					continue;
-
-				gettimeofday(&gstart, NULL);
-
-				correct = 0;
-				k = 0;
-
-				par_shanks_loop(comp, fout64, numtest);
-
-				for (i = 0; i < numtest; i++)
-				{
-					if (((uint32_t)fout64[i] == f1[i]) || ((uint32_t)fout64[i] == f2[i]))
-						correct++;
-				}
-
-				gettimeofday(&gstop, NULL);
-				t_time = ytools_difftime(&gstart, &gstop);
-
-				printf("squfof-parallel setup: %1.1f avg bits, %d max; results: %d of %d %2.2f sec (%1.2f us, avg)\n",
-					avgBits, maxBits, correct, numtest, t_time, 1000000 * t_time / (double)numtest);
-
-				if (t_time > 10.0)
-					numtest /= 2;
-			}
-		}
-
-		if (do_tinyecm)
-		{
-			mpz_t fact1, fact2, gmp_comp;
-
-			mpz_init(fact1);
-			mpz_init(fact2);
-			mpz_init(gmp_comp);
-
-			printf("====================== tinyecm Method =========================\n");
-			numtest = 10000;
-			for (nf = 0; nf < num_big_files; nf++)
-			{
-				uint64_t known1, known2;
-				char buf[1024];
-				in = fopen(bigfilenames[nf], "r");
-
-				gettimeofday(&gstart, NULL);
-
-				correct = 0;
-				k = 0;
-				i = 0;
-				totBits = 0;
-				minBits = 999;
-				maxBits = 0;
-				for (i = 0; i < numtest; i++)
-				{
-					fgets(buf, 768, in);
-
-#ifdef _MSC_VER
-					gmp_sscanf(buf, "%Zd, %llu, %llu",
-						gmp_comp, &known1, &known2);
-#else
-					gmp_sscanf(buf, "%Zd,%lu,%lu", gmp_comp, &known1, &known2);
-#endif
-
-					j = mpz_sizeinbase(gmp_comp, 2);
-					if (j < 32) continue;
-					totBits += j;
-					if ((uint32_t)j > maxBits)
-						maxBits = j;
-					if ((uint32_t)j < minBits && j != 0)
-						minBits = j;
-
-					getfactor_tecm(gmp_comp, fact1, 0, &lcg_state);
-					f64 = mpz_get_64(fact1);
-
-					if ((f64 == known1) || (f64 == known2))
-					{
-						correct++;
-					}
-				}
-
-				fclose(in);
-				avgBits = (double)totBits / (double)numtest;
-
-				gettimeofday(&gstop, NULL);
-				t_time = ytools_difftime(&gstart, &gstop);
-
-				printf("tinyecm setup: %1.1f avg bits, %d max; results: %d of %d %2.2f sec (%1.2f us, avg)\n",
-					avgBits, maxBits, correct, numtest, t_time, 1000000 * t_time / (double)numtest);
-			}
-
-			mpz_clear(gmp_comp);
-			mpz_clear(fact1);
-			mpz_clear(fact2);
-		}
-#endif
 	}
 
 	mpz_clear(gmptmp);
@@ -714,9 +577,13 @@ int run_test(test_t* test)
 
 				k = tinyqs(params, composites[i], f1, f2);
 
-				if ((mpz_cmp(f1, factors[i][0]) == 0) || (mpz_cmp(f1, factors[i][1]) == 0))
+				for (j = 0; j < num_factors[i]; j++)
 				{
-					test->num_ff++;
+					if ((mpz_cmp(f1, factors[i][j]) == 0))
+					{
+						test->num_ff++;
+						break;
+					}
 				}
 			}
 
@@ -738,8 +605,8 @@ int run_test(test_t* test)
 			free(num_factors);
 		}
 		
-		mpz_init(f1);
-		mpz_init(f2);
+		mpz_clear(f1);
+		mpz_clear(f2);
 		return status;
 		break;
 
@@ -819,10 +686,15 @@ int run_test(test_t* test)
 			{
 				uint64_t f64 = (fout64[2 * i + 1] << 52) | fout64[2 * i + 0];
 
-				if ((f64 == factors64[i][0]) || (f64 == factors64[i][1]))
+				for (j = 0; j < num_factors[i]; j++)
 				{
-					test->num_ff++;
+					if ((f64 == factors64[i][j]))
+					{
+						test->num_ff++;
+						break;
+					}
 				}
+				
 			}
 
 			gettimeofday(&gstop, NULL);
@@ -839,8 +711,8 @@ int run_test(test_t* test)
 			free(factors64);
 		}
 
-		mpz_init(f1);
-		mpz_init(f2);
+		mpz_clear(f1);
+		mpz_clear(f2);
 		return status;
 		break;
 
@@ -942,8 +814,113 @@ int run_test(test_t* test)
 			free(num_factors);
 		}
 
-		mpz_init(f1);
-		mpz_init(f2);
+		mpz_clear(f1);
+		mpz_clear(f2);
+		return status;
+		break;
+
+		case BATCHFACTOR:
+			// special case inputs/outputs:
+			// lots of special case setup.  needs many inputs to amortize cost.
+		{
+
+			gettimeofday(&gstart, NULL);
+
+			relation_batch_t rb;
+
+			// hardwire some stuff for now
+			uint32_t pmax = 1 << 25;
+			uint32_t lp_max = 1 << 30;
+			uint32_t bdiv = 3;
+
+			relation_batch_init(stdout, &rb, pmax,
+				lp_max / bdiv, lp_max, lp_max, NULL, 1);
+
+			composites = (mpz_t*)xmalloc(test->num_to_test * sizeof(mpz_t));
+			factors = (mpz_t**)xmalloc(test->num_to_test * sizeof(mpz_t*));
+			num_factors = (uint32_t*)xmalloc(test->num_to_test * sizeof(uint32_t));
+
+			totBits = 0;
+			minBits = 999;
+			maxBits = 0;
+			num_read = 0;
+			for (i = 0; i < test->num_to_test && !feof(in); i++)
+			{
+				fptr = fgets(buf, 1024, in);
+
+				if (fptr == NULL)
+					break;
+
+				mpz_init(composites[i]);
+
+				fptr = strtok(buf, ",");
+				gmp_sscanf(fptr, "%Zd", composites[i]);
+				fptr = strtok(NULL, ",");
+				gmp_sscanf(fptr, "%u", &num_factors[i]);
+
+				factors[i] = (mpz_t*)xmalloc(num_factors[i] * sizeof(mpz_t));
+
+				for (j = 0; j < num_factors[i]; j++)
+				{
+					fptr = strtok(NULL, ",");
+					mpz_init(factors[i][j]);
+					gmp_sscanf(fptr, "%Zd", factors[i][j]);
+				}
+
+				j = mpz_sizeinbase(composites[i], 2);
+
+				totBits += j;
+				if ((uint32_t)j > maxBits)
+					maxBits = j;
+				if ((uint32_t)j < minBits && j != 0)
+					minBits = j;
+
+				relation_batch_add(1, 0, 1, NULL, 0,
+					composites[i], NULL, 0, f1, NULL, &rb);
+
+				num_read++;
+			}
+
+			fclose(in);
+			gettimeofday(&gstop, NULL);
+			test->parse_time = ytools_difftime(&gstart, &gstop);
+			test->avg_bits = (double)totBits / (double)i;
+			test->min_bits = minBits;
+			test->max_bits = maxBits;
+
+			if (num_read != test->num_to_test)
+			{
+				printf("warning: did not read %d requested test cases in file %s\n"
+					"proceeding with %u test cases\n",
+					test->num_to_test, test->testfile, num_read);
+				status = warnings;
+			}
+
+			printf("setup took %1.2f sec.\ncommencing batch factoring\n", test->parse_time);
+
+			gettimeofday(&gstart, NULL);
+
+			relation_batch_run(&rb, &test->lcg_state);
+
+			gettimeofday(&gstop, NULL);
+			test->elasped_time = ytools_difftime(&gstart, &gstop);
+
+			test->num_ff = 0;
+			test->num_pf = 0;
+
+			for (i = 0; i < num_read; i++)
+			{
+				if (rb.relations[i].success)
+				{
+					test->num_ff++;
+				}
+			}
+
+			relation_batch_free(&rb);
+		}
+
+		mpz_clear(f1);
+		mpz_clear(f2);
 		return status;
 		break;
 

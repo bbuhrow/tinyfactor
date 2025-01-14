@@ -1,0 +1,20 @@
+# format of a line:
+# algorithm,file,number of tests to run
+# algorithm names:
+# lehman, squfof, fermat, squfof-par, rho, uecm, uecm-par, tecm, tecm-par, siqs, ggnfs-mpqs, ggnfs-mpqs3
+# algorithm restrictions:
+# lehman: <= 60 bits
+# squfof: <= 62 bits
+# squfof-par: <= 62 bits
+# uecm-par: <= 52 bits
+# tecm-par: <= 104 bits
+# siqs: >= 34 bits
+# ggnfs-mpqs: <= 96 bits
+# ggnfs-mpqs3: >= 90 bits
+# uecm: <= 64 bits
+# fermat: <= 64 bits
+# rho: <= 64 bits
+
+#batchfactor,tlp_78_90.dat,1000000
+siqs,tlp_78_90.dat,10000
+tecm-par,tlp_78_90.dat,10000

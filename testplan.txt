@@ -1,0 +1,135 @@
+# format of a line:
+# algorithm,file,number of tests to run
+# algorithm names:
+# lehman, squfof, fermat, squfof-par, rho, uecm, uecm-par, tecm, tecm-par, siqs, ggnfs-mpqs, ggnfs-mpqs3
+# algorithm restrictions:
+# lehman: <= 60 bits
+# squfof: <= 62 bits
+# squfof-par: <= 62 bits
+# uecm-par: <= 52 bits
+# tecm-par: <= 104 bits
+# siqs: >= 34 bits
+# ggnfs-mpqs: <= 96 bits
+# ggnfs-mpqs3: >= 90 bits
+# uecm: <= 64 bits
+# fermat: <= 64 bits
+# rho: <= 64 bits
+tecm-par,semiprimes_32bit.dat,10000
+tecm-par,semiprimes_34bit.dat,10000
+tecm-par,semiprimes_36bit.dat,10000
+tecm-par,semiprimes_38bit.dat,10000
+tecm-par,semiprimes_40bit.dat,10000
+tecm-par,semiprimes_42bit.dat,10000
+tecm-par,semiprimes_44bit.dat,10000
+tecm-par,semiprimes_46bit.dat,10000
+tecm-par,semiprimes_48bit.dat,10000
+tecm-par,semiprimes_50bit.dat,10000
+tecm-par,semiprimes_52bit.dat,10000
+
+uecm-par,semiprimes_32bit.dat,10000
+uecm-par,semiprimes_34bit.dat,10000
+uecm-par,semiprimes_36bit.dat,10000
+uecm-par,semiprimes_38bit.dat,10000
+uecm-par,semiprimes_40bit.dat,10000
+uecm-par,semiprimes_42bit.dat,10000
+uecm-par,semiprimes_44bit.dat,10000
+uecm-par,semiprimes_46bit.dat,10000
+uecm-par,semiprimes_48bit.dat,10000
+uecm-par,semiprimes_50bit.dat,10000
+uecm-par,semiprimes_52bit.dat,10000
+
+siqs,semiprimes_32bit.dat,1000
+siqs,semiprimes_34bit.dat,1000
+siqs,semiprimes_36bit.dat,1000
+siqs,semiprimes_38bit.dat,1000
+siqs,semiprimes_40bit.dat,1000
+siqs,semiprimes_42bit.dat,1000
+siqs,semiprimes_44bit.dat,1000
+siqs,semiprimes_46bit.dat,1000
+siqs,semiprimes_48bit.dat,1000
+siqs,semiprimes_50bit.dat,1000
+siqs,semiprimes_52bit.dat,1000
+
+lehman,semiprimes_32bit.dat,10000
+lehman,semiprimes_34bit.dat,10000
+lehman,semiprimes_36bit.dat,10000
+lehman,semiprimes_38bit.dat,10000
+lehman,semiprimes_40bit.dat,10000
+lehman,semiprimes_42bit.dat,10000
+lehman,semiprimes_44bit.dat,10000
+lehman,semiprimes_46bit.dat,10000
+lehman,semiprimes_48bit.dat,10000
+lehman,semiprimes_50bit.dat,10000
+lehman,semiprimes_52bit.dat,10000
+
+fermat,semiprimes_32bit.dat,10000
+fermat,semiprimes_34bit.dat,10000
+fermat,semiprimes_36bit.dat,10000
+fermat,semiprimes_38bit.dat,10000
+fermat,semiprimes_40bit.dat,10000
+fermat,semiprimes_42bit.dat,10000
+fermat,semiprimes_44bit.dat,10000
+fermat,semiprimes_46bit.dat,10000
+fermat,semiprimes_48bit.dat,10000
+fermat,semiprimes_50bit.dat,10000
+fermat,semiprimes_52bit.dat,10000
+
+rho,semiprimes_32bit.dat,10000
+rho,semiprimes_34bit.dat,10000
+rho,semiprimes_36bit.dat,10000
+rho,semiprimes_38bit.dat,10000
+rho,semiprimes_40bit.dat,10000
+rho,semiprimes_42bit.dat,10000
+rho,semiprimes_44bit.dat,10000
+rho,semiprimes_46bit.dat,10000
+rho,semiprimes_48bit.dat,10000
+rho,semiprimes_50bit.dat,10000
+rho,semiprimes_52bit.dat,10000
+
+squfof,semiprimes_32bit.dat,10000
+squfof,semiprimes_34bit.dat,10000
+squfof,semiprimes_36bit.dat,10000
+squfof,semiprimes_38bit.dat,10000
+squfof,semiprimes_40bit.dat,10000
+squfof,semiprimes_42bit.dat,10000
+squfof,semiprimes_44bit.dat,10000
+squfof,semiprimes_46bit.dat,10000
+squfof,semiprimes_48bit.dat,10000
+squfof,semiprimes_50bit.dat,10000
+squfof,semiprimes_52bit.dat,10000
+
+squfof-par,semiprimes_32bit.dat,10000
+squfof-par,semiprimes_34bit.dat,10000
+squfof-par,semiprimes_36bit.dat,10000
+squfof-par,semiprimes_38bit.dat,10000
+squfof-par,semiprimes_40bit.dat,10000
+squfof-par,semiprimes_42bit.dat,10000
+squfof-par,semiprimes_44bit.dat,10000
+squfof-par,semiprimes_46bit.dat,10000
+squfof-par,semiprimes_48bit.dat,10000
+squfof-par,semiprimes_50bit.dat,10000
+squfof-par,semiprimes_52bit.dat,10000
+
+uecm,semiprimes_32bit.dat,10000
+uecm,semiprimes_34bit.dat,10000
+uecm,semiprimes_36bit.dat,10000
+uecm,semiprimes_38bit.dat,10000
+uecm,semiprimes_40bit.dat,10000
+uecm,semiprimes_42bit.dat,10000
+uecm,semiprimes_44bit.dat,10000
+uecm,semiprimes_46bit.dat,10000
+uecm,semiprimes_48bit.dat,10000
+uecm,semiprimes_50bit.dat,10000
+uecm,semiprimes_52bit.dat,10000
+
+tecm,semiprimes_32bit.dat,10000
+tecm,semiprimes_34bit.dat,10000
+tecm,semiprimes_36bit.dat,10000
+tecm,semiprimes_38bit.dat,10000
+tecm,semiprimes_40bit.dat,10000
+tecm,semiprimes_42bit.dat,10000
+tecm,semiprimes_44bit.dat,10000
+tecm,semiprimes_46bit.dat,10000
+tecm,semiprimes_48bit.dat,10000
+tecm,semiprimes_50bit.dat,10000
+tecm,semiprimes_52bit.dat,10000

@@ -115,7 +115,9 @@ SRCS = \
 	monty.c \
 	rds_squfof.c \
 	alpern_squfof.c \
-	cmdOptions.c
+	cmdOptions.c \
+	batch_factor.c \
+	prime_sieve.c
 	
 HDR = \
 	microecm.h \
@@ -125,7 +127,9 @@ HDR = \
 	monty.h \
 	arith.h \
 	common.h \
-	cmdOptions.h
+	cmdOptions.h \
+	batch_factor.h \
+	prime_sieve.h
 	
 	
 OBJS = $(SRCS:.c=.o)

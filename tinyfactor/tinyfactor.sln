@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "yafu_squfof", "yafu_squfof\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ggnfs_mpqs", "ggnfs_mpqs\ggnfs_mpqs.vcxproj", "{B08C72B9-89CE-4220-9D66-A698AC399DC1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "batch_factor", "batch_factor\batch_factor.vcxproj", "{8429AB92-40F7-431C-BCE7-8097D1E37F24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{B08C72B9-89CE-4220-9D66-A698AC399DC1}.Release|x64.Build.0 = Release|x64
 		{B08C72B9-89CE-4220-9D66-A698AC399DC1}.Release|x86.ActiveCfg = Release|Win32
 		{B08C72B9-89CE-4220-9D66-A698AC399DC1}.Release|x86.Build.0 = Release|Win32
+		{8429AB92-40F7-431C-BCE7-8097D1E37F24}.Debug|x64.ActiveCfg = Debug|x64
+		{8429AB92-40F7-431C-BCE7-8097D1E37F24}.Debug|x64.Build.0 = Debug|x64
+		{8429AB92-40F7-431C-BCE7-8097D1E37F24}.Debug|x86.ActiveCfg = Debug|Win32
+		{8429AB92-40F7-431C-BCE7-8097D1E37F24}.Debug|x86.Build.0 = Debug|Win32
+		{8429AB92-40F7-431C-BCE7-8097D1E37F24}.Release|x64.ActiveCfg = Release|x64
+		{8429AB92-40F7-431C-BCE7-8097D1E37F24}.Release|x64.Build.0 = Release|x64
+		{8429AB92-40F7-431C-BCE7-8097D1E37F24}.Release|x86.ActiveCfg = Release|Win32
+		{8429AB92-40F7-431C-BCE7-8097D1E37F24}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
