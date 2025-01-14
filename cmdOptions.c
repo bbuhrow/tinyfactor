@@ -44,19 +44,19 @@ void printUsage(options_t* options);
 // if the user tries -h
 
 // define help text for usage of the program.  
-char usageHelp[MAXHELPLEN] = "[start (default 0)] stop [options]";
+char usageHelp[MAXHELPLEN] = "";
 
 // command line options, specified by '-'
 char OptionArray[NUMOPTIONS][MAXOPTIONLEN] = { 
-    "g", "o", "c", "i", "t", 
-    "n"};
+    "g", "o", "i", "t", "n"
+    };
 
 // command line option aliases, specified by '--'
 // need the same number of strings here, even if
 // some of them are blank (i.e., have no long form alias).
 char LongOptionAliases[NUMOPTIONS][MAXOPTIONLEN] = {
-    "generate", "outfile", "gencmd", "infile", "test", 
-    "num"};
+    "generate", "outfile", "infile", "test", "num"
+    };
 
 // indication of whether or not an option needs a corresponding argument.
 // needs to be the same length as the above two arrays.
@@ -64,8 +64,7 @@ char LongOptionAliases[NUMOPTIONS][MAXOPTIONLEN] = {
 // 1 = argument required
 // 2 = argument optional
 int needsArg[NUMOPTIONS] = {
-    0,1,1,1,0,
-    1};
+    1,1,1,1,1};
 
 // help strings displayed with -h
 // needs to be the same length as the above arrays, even if 
@@ -73,7 +72,6 @@ int needsArg[NUMOPTIONS] = {
 char OptionHelp[NUMOPTIONS][MAXHELPLEN] = {
     "Generate test case",
     "Output file name",
-    "Generate command: ",
     "Input file name",
     "Perform test (default)",
     "number (cases to generate)"};
@@ -97,6 +95,7 @@ void applyOpt(char* opt, char* arg, options_t* options)
     if (strcmp(opt, options->OptionArray[0]) == 0)
     {
         options->generate = 1;
+        strncpy(options->genCmd, arg, 256);
     }
     else if (strcmp(opt, options->OptionArray[1]) == 0)
     {
@@ -104,17 +103,13 @@ void applyOpt(char* opt, char* arg, options_t* options)
     }
     else if (strcmp(opt, options->OptionArray[2]) == 0)
     {
-        strncpy(options->genCmd, arg, 256);
+        strncpy(options->testPlan, arg, 256);
     }
     else if (strcmp(opt, options->OptionArray[3]) == 0)
     {
-        strncpy(options->testPlan, arg, 256);
-    }
-    else if (strcmp(opt, options->OptionArray[4]) == 0)
-    {
         options->test = 1;
     }
-    else if (strcmp(opt, options->OptionArray[5]) == 0)
+    else if (strcmp(opt, options->OptionArray[4]) == 0)
     {
         options->num = atoi(arg);
     }

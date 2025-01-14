@@ -63,7 +63,8 @@ uint64_t spbrent(uint64_t N, uint64_t c, int imax);
 // change *pran, since that would restart the sequence.
 int getfactor_tpm1(mpz_t n, mpz_t f, uint32_t b1);
 int getfactor_tecm(mpz_t n, mpz_t f, int is_arbitrary, uint64_t* pran);
-
+void getfactor_tecm_x8_list(uint64_t* q64, uint64_t* f64, int target_bits,
+	uint32_t num_in, uint64_t* pran);
 
 
 

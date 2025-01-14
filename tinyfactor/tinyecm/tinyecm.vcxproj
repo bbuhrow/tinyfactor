@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\monty.c" />
     <ClCompile Include="..\..\tinyecm.c" />
   </ItemGroup>
   <ItemGroup>

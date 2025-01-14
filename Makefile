@@ -114,7 +114,8 @@ SRCS = \
 	util.c \
 	monty.c \
 	rds_squfof.c \
-	alpern_squfof.c
+	alpern_squfof.c \
+	cmdOptions.c
 	
 HDR = \
 	microecm.h \
@@ -123,7 +124,8 @@ HDR = \
 	tinyfactor.h \
 	monty.h \
 	arith.h \
-	common.h
+	common.h \
+	cmdOptions.h
 	
 	
 OBJS = $(SRCS:.c=.o)
